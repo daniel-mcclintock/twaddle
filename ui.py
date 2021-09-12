@@ -126,7 +126,7 @@ def render_border(_min, _max, borders, title=None):
 
 
 def fetch_tweets(name):
-    return [t for t in get_tweets(name, limit=100)]
+    return [t for t in get_tweets(name, limit=os.get_terminal_size()[1])]
 
 
 class InputModal:
@@ -249,7 +249,7 @@ class ListContainer:
 
 class Container:
     def __init__(self, title, borders=BORDERS):
-        self.mp_pool = Pool(processes=2)
+        self.mp_pool = Pool(processes=1)
         self.title = title
         self.borders = borders
 
